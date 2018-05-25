@@ -8,5 +8,7 @@ hierarchy:
   - name: 'Yaml backend'
     data_hash: yaml_data
     paths:
-      - "nodes/%{trusted.certname}.yaml"
-      - 'common.yaml'
+      - name: "Per-node data (yaml version)"
+        path: "nodes/%{::trusted.certname}"
+      - name: "Common and fallback data"
+        path: "common.yaml"
